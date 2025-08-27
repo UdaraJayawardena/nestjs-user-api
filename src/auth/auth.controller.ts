@@ -1,6 +1,8 @@
 import { Controller, Post, Body, UsePipes, ValidationPipe, BadRequestException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+
 import { AuthService } from './auth.service';
+
 import { LoginDto } from './dto/login.dto';
 
 @ApiTags('Auth')
@@ -9,7 +11,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  @ApiOperation({ summary: 'Login user' })
+  @ApiOperation({ summary: 'Login User' })
   @ApiResponse({ status: 200, description: 'Access Token will be generated' })
   @UsePipes(new ValidationPipe({ whitelist: true }))
   async login(@Body() body: LoginDto) {
