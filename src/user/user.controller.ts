@@ -18,7 +18,7 @@ export class UserController {
   constructor(private readonly userService: UserService) { }
 
   @Post('register')
-  @ApiOperation({ summary: 'Register a new user' })
+  @ApiOperation({ summary: 'Register a new User' })
   @ApiResponse({ status: 200, description: 'User created successfully' })
   @ApiResponse({ status: 40, description: 'Email or Username already in use' })
   async registerUser(@Body() body: CreateUserDto) {
@@ -39,12 +39,13 @@ export class UserController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-   @ApiOperation({ summary: 'Fetch all Users' })
+  @ApiOperation({ summary: 'Fetch all Users' })
   findAllUsers() {
     return this.userService.findAllUsers();
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Fetch a single User data by Id' })
   async getUserById(@Param('id', ParseIntPipe) id: number) {
     return this.userService.getUserById(id);

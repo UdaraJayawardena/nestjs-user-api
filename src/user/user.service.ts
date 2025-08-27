@@ -27,7 +27,6 @@ export class UserService {
       throw new Error('Username and Password are required');
     }
 
-    // Check if email or username already exists
     const existingUser = await this.findByEmailOrUsername(email, username);
 
     if (existingUser) {
@@ -55,7 +54,7 @@ export class UserService {
     return updatedList;
   }
 
-  // Fetch a single User by ID
+  // Fetch a single user by Id
   async getUserById(id: number) {
     const user = await this.prisma.user.findUnique({
       where: { id },
@@ -85,7 +84,7 @@ export class UserService {
     return updatedUser;
   }
 
-// Delete User
+  // Delete User
   async deleteUser(id: number, accountStatus: string) {
     const userExists = await this.prisma.user.findUnique({ where: { id } });
     if (!userExists) {
