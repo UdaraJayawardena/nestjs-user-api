@@ -3,8 +3,8 @@ import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagg
 
 import { UserService } from './user.service';
 
-// import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-// import { OwnUserGuard } from '../auth/guards/own-user.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { OwnUserGuard } from '../auth/guards/own-user.guard';
 
 import { CreateUserDto } from './dto/create-user';
 import { UpdateUserDto } from './dto/update-user';
