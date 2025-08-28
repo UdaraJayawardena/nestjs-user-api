@@ -62,12 +62,38 @@ $ npm run start:dev
 ```
 
 ## Run with Docker Compose
+Before running on Docker, configure the required environment variables.
+
+1. Create a Root Folder for both user-service and tweet-service.
+
+2. Add the docker-compose.yml file to that Folder
+
+3. Make sure the docker-compose.yml file is outisde of both service folders
+
+4. Folder Structure will be Look like this
+```bash
+├── nestjs-micro-backend # Root folder
+│ ├── nestjs-user-api # User API service
+│   ├── src/ 
+│   ├── dist/
+│   ├── prisma/
+│   ├── package.json
+│   └── Dockerfile
+│ ├── nestjs-tweet-api # Tweet API service
+│   ├── src/ 
+│   ├── dist/
+│   ├── prisma/
+│   ├── package.json
+│   └── Dockerfile
+└── docker-compose.yml # Docker Compose file
+```
+
+5. Run the Docker Compose File 
 
 ```bash
-# docker compose
-$ sudo docker compose up --build
-
+$ sudo docker compose up --build -d
 ```
+
 ## API Documentation
 
 ```bash
